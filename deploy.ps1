@@ -22,3 +22,10 @@ docker push "${dockerUser}/${frontendImage}:${version}"
 docker push "${dockerUser}/${backendImage}:${version}"
 
 Write-Host "Deployment completed successfully!"
+
+# Update docker-compose.yml version dynamically
+(Get-Content "docker-compose.yml") |
+ForEach-Object { $_ -replace '\${VERSION:-latest}', "${version}" } |
+Set-Content "docker-compose.yml"
+
+Write-Host "docker-compose.yml updated to version $version"
