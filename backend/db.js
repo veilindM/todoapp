@@ -10,6 +10,19 @@ const db = mysql.createConnection({
 db.connect(err => {
   if (err) throw err;
   console.log('✅ Connected to MySQL');
+
+  // Automatically create the tasks table if it doesn’t exist
+  const createTableQuery = `
+    CREATE TABLE IF NOT EXISTS tasks (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      title VARCHAR(255),
+      completed BOOLEAN DEFAULT FALSE
+    )
+  `;
+  db.query(createTableQuery, (err) => {
+    if (err) throw err;
+    console.log('✅ Table "tasks" is ready');
+  });
 });
 
 module.exports = db;
