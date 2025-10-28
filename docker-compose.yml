@@ -12,7 +12,7 @@ services:
       - db_data:/var/lib/mysql
 
   backend:
-    image: veilindm/todo-app-backend:v2.0
+    image: veilindm/todo-app-backend:latest
     ports:
       - "5000:5000"
     environment:
@@ -25,7 +25,7 @@ services:
     restart: always
 
   frontend:
-    image: veilindm/todo-app-frontend:v2.0
+    image: veilindm/todo-app-frontend:latest
     ports:
       - "3000:3000"
     depends_on:
