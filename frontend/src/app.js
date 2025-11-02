@@ -52,10 +52,27 @@ function App() {
 		}
 	};
 
+	const completedTasks = tasks.filter((t) => t.completed).length;
+	const totalTasks = tasks.length;
+	const progressPercent = totalTasks > 0 ? (completedTasks / totalTasks) * 100 : 0;
+
 	return (
 		<div className="app">
 			<div className="todo-container">
 				<h1>📝 To-Do List</h1>
+
+				<div className="progress-container">
+					<div className="progress-info">
+						{completedTasks} / {totalTasks} tasks completed
+					</div>
+					<div className="progress-bar">
+						<div
+							className="progress-fill"
+							style={{ width: `${progressPercent}%` }}
+						></div>
+					</div>
+				</div>
+
 				<div className="input-group">
 					<input
 						type="text"
