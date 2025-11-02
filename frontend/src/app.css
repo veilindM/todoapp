@@ -93,3 +93,29 @@ h1 {
 .todo-item button:hover {
 	color: #000;
 }
+
+.progress-container {
+	margin: 15px 0;
+	text-align: left;
+}
+
+.progress-info {
+	font-size: 0.9rem;
+	margin-bottom: 5px;
+	color: #333;
+}
+
+.progress-bar {
+	width: 100%;
+	height: 10px;
+	background-color: #e6e6e6;
+	border-radius: 5px;
+	overflow: hidden;
+	box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.progress-fill {
+	height: 100%;
+	background: linear-gradient(90deg, #4CAF50, #81C784);
+	transition: width 0.3s ease-in-out;
+}
