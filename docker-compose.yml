@@ -38,3 +38,6 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     command: --interval 30   # cek setiap 30 detik (bisa diubah misal 300 = 5 menit)
+
+volumes:
+  db_data:
