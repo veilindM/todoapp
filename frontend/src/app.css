@@ -1,0 +1,95 @@
+/* App.css */
+body {
+	margin: 0;
+	padding: 0;
+	font-family: "Poppins", sans-serif;
+	background: linear-gradient(135deg, #74ebd5, #acb6e5);
+	min-height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.app {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+.todo-container {
+	background: #ffffff;
+	width: 400px;
+	padding: 30px;
+	border-radius: 16px;
+	box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+	text-align: center;
+}
+
+h1 {
+	color: #333;
+	margin-bottom: 20px;
+}
+
+.input-group {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+}
+
+.input-group input {
+	flex: 1;
+	padding: 10px;
+	border: 2px solid #ddd;
+	border-radius: 8px;
+	outline: none;
+	transition: 0.3s;
+}
+
+.input-group input:focus {
+	border-color: #74ebd5;
+}
+
+.input-group button {
+	margin-left: 8px;
+	background-color: #74ebd5;
+	border: none;
+	color: white;
+	padding: 10px 16px;
+	border-radius: 8px;
+	cursor: pointer;
+	transition: 0.3s;
+}
+
+.input-group button:hover {
+	background-color: #57d3c3;
+}
+
+.todo-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: #f7f7f7;
+	margin: 6px 0;
+	padding: 8px 12px;
+	border-radius: 8px;
+	transition: 0.3s;
+}
+
+.todo-item.completed span {
+	text-decoration: line-through;
+	color: #999;
+}
+
+.todo-item button {
+	background: transparent;
+	border: none;
+	color: #555;
+	cursor: pointer;
+	margin-left: 6px;
+	transition: color 0.2s;
+}
+
+.todo-item button:hover {
+	color: #000;
+}

@@ -1,0 +1,57 @@
+/* TodoList.css */
+
+.todo-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.todo-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background: #f7f7f7;
+	border-radius: 10px;
+	padding: 10px 14px;
+	margin-bottom: 10px;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+	transition: transform 0.2s ease, background-color 0.3s;
+}
+
+.todo-item:hover {
+	transform: translateY(-2px);
+	background-color: #f0f0f0;
+}
+
+.todo-item.completed span {
+	text-decoration: line-through;
+	color: #999;
+}
+
+.task-left {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.task-left input[type="checkbox"] {
+	transform: scale(1.2);
+	accent-color: #57d3c3;
+}
+
+.task-actions button {
+	background: none;
+	border: none;
+	cursor: pointer;
+	font-size: 16px;
+	margin-left: 8px;
+	transition: color 0.2s;
+}
+
+.task-actions .edit:hover {
+	color: #3b82f6; /* Blue */
+}
+
+.task-actions .delete:hover {
+	color: #ef4444; /* Red */
+}
