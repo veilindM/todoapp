@@ -55,3 +55,28 @@
 .task-actions .delete:hover {
 	color: #ef4444; /* Red */
 }
+
+.todo-sections {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+	margin-top: 20px;
+}
+
+.todo-section {
+	background: #ffffff;
+	padding: 20px;
+	border-radius: 10px;
+	box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}
+
+.todo-section h3 {
+	margin-bottom: 10px;
+	color: #333;
+	font-size: 1.2rem;
+	font-weight: 600;
+}
+
+.completed-list .todo-item {
+	background: #e8fff0;
+}
