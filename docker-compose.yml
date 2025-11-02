@@ -1,4 +1,4 @@
-version: "3.8"
+version: '3.8'
 
 services:
   db:
@@ -25,18 +25,16 @@ services:
     restart: always
 
   frontend:
-    build:
-      context: ./frontend # Use your local frontend folder
-      dockerfile: Dockerfile
-    volumes:
-      - ./frontend:/app # Mount local code for live reload
-      - /app/node_modules # Prevent overwriting node_modules
+    image: veilindm/todo-app-frontend:latest
     ports:
       - "3000:3000"
-    environment:
-      - CHOKIDAR_USEPOLLING=true # Enables hot reload in Docker
     depends_on:
       - backend
+    restart: always
 
-volumes:
-  db_data:
+  watchtower:
+    image: containrrr/watchtower
+    container_name: watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --interval 30   # cek setiap 30 detik (bisa diubah misal 300 = 5 menit)
