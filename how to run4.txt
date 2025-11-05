@@ -1,4 +1,0 @@
-Setelah push github kalau ada perubahan
-DOCKER push new images : powershell -ExecutionPolicy Bypass -File .\deploy.ps1 -version v1.2
-
-MySql : docker exec -it todo-app-db-1  mysql -u root -p 
