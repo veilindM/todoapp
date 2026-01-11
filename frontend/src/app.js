@@ -2,19 +2,21 @@ import React, { useState, useEffect } from "react";
 import TodoList from "./components/TodoList";
 import "./app.css"; // Import the CSS styling
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 function App() {
 	const [tasks, setTasks] = useState([]);
 	const [newTask, setNewTask] = useState("");
 
 	useEffect(() => {
-		fetch("http://localhost:5000/tasks")
+		fetch(`${API_URL}/tasks`)
 			.then((res) => res.json())
 			.then((data) => setTasks(data));
 	}, []);
 
 	const addTask = async () => {
 		if (!newTask) return;
-		const res = await fetch("http://localhost:5000/tasks", {
+		const res = await fetch(`${API_URL}/tasks`, {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify({ title: newTask }),
@@ -25,13 +27,13 @@ function App() {
 	};
 
 	const deleteTask = async (id) => {
-		await fetch(`http://localhost:5000/tasks/${id}`, { method: "DELETE" });
+		await fetch(`${API_URL}/tasks/${id}`, { method: "DELETE" });
 		setTasks(tasks.filter((task) => task.id !== id));
 	};
 
 	const toggleTask = async (task) => {
 		const updated = { ...task, completed: !task.completed };
-		await fetch(`http://localhost:5000/tasks/${task.id}`, {
+		await fetch(`${API_URL}/tasks/${task.id}`, {
 			method: "PUT",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify(updated),

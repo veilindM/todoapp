@@ -27,6 +27,8 @@ spec:
             value: "true"
           - name: WDS_SOCKET_PORT
             value: "0"
+          - name: REACT_APP_API_URL
+            value: "http://be-service:5000"
         resources:
           requests:
             cpu: "100m"
