@@ -17,3 +17,11 @@ How to run sql :
 4. USE todo_db;
 5. SHOW TABLES;
 6. SELECT * FROM tasks;
+
+Using Kubernetes:
+Make sure every pod is running
+kubectl get pods -n uas-devops
+
+1. FE : kubectl port-forward svc/fe-service 5500:80 -n uas-devops
+2. BE : kubectl port-forward svc/be-service 5000:5000 -n uas-devops
+3. Check data in mysql : kubectl exec -it [pod-name] -n uas-devops -- mysql -u root -p
