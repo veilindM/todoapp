@@ -25,3 +25,16 @@ kubectl get pods -n uas-devops
 1. FE : kubectl port-forward svc/fe-service 5500:80 -n uas-devops
 2. BE : kubectl port-forward svc/be-service 5000:5000 -n uas-devops
 3. Check data in mysql : kubectl exec -it [pod-name] -n uas-devops -- mysql -u root -p
+
+Argo CD
+# Buat namespace untuk argocd
+kubectl create namespace argocd
+
+# Install Argo CD
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+Jalankan Dashboard
+kubectl port-forward svc/argocd-server -n argocd 8081:443
+Username : admin
+Pass : dapat dari
+[System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String((kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}")))
